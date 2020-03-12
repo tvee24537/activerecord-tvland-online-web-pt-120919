@@ -3,11 +3,11 @@ class Show < ActiveRecord::Base
   has_many :characters
   has_many :actors, through: :characters
 
-def actors_list
-   array=[]
-   array_full_name =self.actors.map {|actor| actor.full_name}
-   array_of_shows = self.shows.map {|show| show.name}
-   show = array_full_name.concat array_of_shows
+  def actors_list
+    array = []
+    array_full_name = self.actors.map {|actor| actor.full_name}
+    array_of_shows = self.shows.map {|show| show.name}
+    show = array_full_name.concat array_of_shows
     array << show.join(" - ")
     array
    
